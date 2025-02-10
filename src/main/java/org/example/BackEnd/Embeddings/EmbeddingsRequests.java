@@ -7,12 +7,12 @@ import com.azure.ai.openai.models.Embeddings;
 import com.azure.ai.openai.models.EmbeddingsOptions;
 import com.azure.ai.openai.models.EmbeddingsUsage;
 import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.util.Configuration;
 
-import java.util.Arrays;
+
+import java.util.*;
 public class EmbeddingsRequests {
-public void embeddingsRequest(){
-    String azureOpenaiKey = "";
+public List<EmbeddingItem> embeddingsRequest(){
+    String azureOpenaiKey = "6VS8SKYPdi4ZGs3ltxYQNDdpMJEogk30g0L4N0ghqFdD0B8YWNHUJQQJ99BBACHYHv6XJ3w3AAAFACOGRYBw";
     String endpoint = "https://hacknet-colsanjose.openai.azure.com/";
     String deploymentOrModelId = "text-embedding-ada-002";
 
@@ -25,18 +25,6 @@ public void embeddingsRequest(){
 
     Embeddings embeddings = client.getEmbeddings(deploymentOrModelId, embeddingsOptions);
 
-    for (EmbeddingItem item : embeddings.getData()) {
-        System.out.printf("Index: %d.%n", item.getPromptIndex());
-        System.out.println("Embedding as base64 encoded string: " +  item.getEmbeddingAsString());
-        System.out.println("Embedding as list of floats: ");
-        for (Float embedding : item.getEmbedding()) {
-            System.out.printf("%f;", embedding);
-        }
-    }
-
-    EmbeddingsUsage usage = embeddings.getUsage();
-    System.out.printf(
-        "Usage: number of prompt token is %d and number of total tokens in request and response is %d.%n",
-        usage.getPromptTokens(), usage.getTotalTokens());
+    return embeddings.getData();
 }
 }

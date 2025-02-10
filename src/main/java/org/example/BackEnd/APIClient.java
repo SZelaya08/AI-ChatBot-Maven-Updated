@@ -2,7 +2,7 @@ package org.example.BackEnd;
 import java.util.*;
 
 
-import java.util.*;
+
 import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.ai.openai.models.*;
@@ -14,7 +14,7 @@ import java.sql.*;
 public class APIClient {
 
     public void Chat(String pregunta) {
-        String apiKey = "";
+        String apiKey = "6VS8SKYPdi4ZGs3ltxYQNDdpMJEogk30g0L4N0ghqFdD0B8YWNHUJQQJ99BBACHYHv6XJ3w3AAAFACOGRYBw";
         String url = "https://hacknet-colsanjose.openai.azure.com/";
         String urlDB = "jdbc:postgresql://hacknet.cncguc2ysbs8.us-east-1.rds.amazonaws.com:5432/HACKNETDB";
 
