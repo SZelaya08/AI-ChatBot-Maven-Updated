@@ -39,13 +39,15 @@ public class APIClient {
         // https://jdbc.postgresql.org/documentation/use/
 
 
+        
+
         OpenAIClient client = new OpenAIClientBuilder()
                 .credential(new AzureKeyCredential(apiKey))
                 .endpoint(url)
                 .buildClient();
 
         List<ChatRequestMessage> chatMessages = new ArrayList<>();
-        chatMessages.add(new ChatRequestSystemMessage("pregunta"));
+        chatMessages.add(new ChatRequestSystemMessage(pregunta));
         
         ChatCompletions chatCompletions = client.getChatCompletions("gpt-4o-mini",
                 new ChatCompletionsOptions(chatMessages));
