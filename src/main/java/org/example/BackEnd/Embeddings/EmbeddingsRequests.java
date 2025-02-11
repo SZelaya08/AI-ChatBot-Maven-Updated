@@ -11,8 +11,8 @@ import com.azure.core.credential.AzureKeyCredential;
 
 import java.util.*;
 public class EmbeddingsRequests {
-public List<EmbeddingItem> embeddingsRequest(){
-    String azureOpenaiKey = "6VS8SKYPdi4ZGs3ltxYQNDdpMJEogk30g0L4N0ghqFdD0B8YWNHUJQQJ99BBACHYHv6XJ3w3AAAFACOGRYBw";
+public String embeddingsRequest(String embRequest){
+    String azureOpenaiKey = "DbJJJ2a7jiUDtSZo4aFulZzZX2W3TPQNQvJW2gKHVL0ciZhdXyJiJQQJ99BAACHYHv6XJ3w3AAABACOGh5pr";
     String endpoint = "https://hacknet-colsanjose.openai.azure.com/";
     String deploymentOrModelId = "text-embedding-ada-002";
 
@@ -21,10 +21,21 @@ public List<EmbeddingItem> embeddingsRequest(){
         .endpoint(endpoint)
         .buildClient();
 
-    EmbeddingsOptions embeddingsOptions = new EmbeddingsOptions(Arrays.asList("Zelaya cv"));
+    EmbeddingsOptions embeddingsOptions = new EmbeddingsOptions(Arrays.asList(embRequest));
 
     Embeddings embeddings = client.getEmbeddings(deploymentOrModelId, embeddingsOptions);
+    //"'[12.12,14.14]'"
+    String emb = "'[";
+    for(EmbeddingItem item: embeddings.getData()){
+            for(Float embedding : item.getEmbedding()){
+                emb = emb+embedding.toString()+",";
+                
+            }
+            emb=emb.substring(0, emb.length()-1);
+            emb = emb+"]'";
+    }
 
-    return embeddings.getData();
+    System.out.println(emb);
+    return emb;
 }
 }

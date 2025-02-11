@@ -11,8 +11,8 @@ public class Table {
 public void createTable(){
   // Coneccion con la base de Datos
         Properties props = new Properties();
-        props.setProperty("user", "hacknet_colsanjose");
-        props.setProperty("password", "235711");
+        props.setProperty("user", "");
+        props.setProperty("password", "");
         //FALTA USER Y PASSWORD
         //
         Connection conn;

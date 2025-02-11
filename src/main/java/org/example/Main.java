@@ -18,7 +18,8 @@ public class Main {
         //table.createTable();
 
         EmbeddingsRequests ie = new EmbeddingsRequests();
-        System.out.println(ie.embeddingsRequest());
+        ie.embeddingsRequest("hola mundo");
+        //System.out.println(ie.embeddingsRequest());
        
       
 

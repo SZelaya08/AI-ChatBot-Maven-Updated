@@ -14,7 +14,7 @@ import java.sql.*;
 public class APIClient {
 
     public void Chat(String pregunta) {
-        String apiKey = "6VS8SKYPdi4ZGs3ltxYQNDdpMJEogk30g0L4N0ghqFdD0B8YWNHUJQQJ99BBACHYHv6XJ3w3AAAFACOGRYBw";
+        String apiKey = "";
         String url = "https://hacknet-colsanjose.openai.azure.com/";
         String urlDB = "jdbc:postgresql://hacknet.cncguc2ysbs8.us-east-1.rds.amazonaws.com:5432/HACKNETDB";
 
