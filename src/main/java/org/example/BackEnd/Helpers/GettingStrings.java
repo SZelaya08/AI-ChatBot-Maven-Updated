@@ -2,8 +2,11 @@ package org.example.BackEnd.Helpers;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.example.BackEnd.Embeddings.EmbeddingsRequests;
+
 public class GettingStrings {
-    public static void main(String[] args) {
+    EmbeddingsRequests emb = new EmbeddingsRequests();
+    public  void main(String[] args) {
         Scanner scanner = new Scanner("src\\main\\resources\\n" + //
                         "ewestData.txt");
         String todo = "";
@@ -26,6 +29,8 @@ public class GettingStrings {
             for(String q : individual){
                 concatenado = q+concatenado;   
             }
+            emb.embeddingsRequests(concatenado);
+            
             
         }
 
