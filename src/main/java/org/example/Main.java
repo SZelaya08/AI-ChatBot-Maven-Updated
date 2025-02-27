@@ -1,11 +1,9 @@
 package org.example;
-
-import org.example.BackEnd.FrameBuilder;
+import org.example.BackEnd.*;
 import org.example.BackEnd.Embeddings.EmbeddingsRequests;
-import org.example.BackEnd.Setup.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import org.example.BackEnd.Helpers.GettingStrings;
+import org.example.BackEnd.Setup.Table;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -14,12 +12,15 @@ public class Main {
         // in.frameSetup(); //se llama a la funcion
         
 
-        //Table table = new Table();
-        //table.createTable();
+        // Table table = new Table();
+        // table.createTable();
 
-        EmbeddingsRequests ie = new EmbeddingsRequests();
-        ie.embeddingsRequest("hola mundo");
+        // EmbeddingsRequests ie = new EmbeddingsRequests();
+        // ie.embeddingsRequest("hola mundo");
         //System.out.println(ie.embeddingsRequest());
+
+        GettingStrings get = new GettingStrings();
+        get.guardarBD();
        
       
 
